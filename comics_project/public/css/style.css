@@ -1,0 +1,45 @@
+body {
+    background-color: #AE0001;
+    margin: 0;
+}
+
+/*! NAVBAR !*/
+
+.navbar {
+    color: #AE0001;
+    font-family: 'Bangers';
+    font-size: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+}
+
+@supports (-webkit-text-stroke: 3px black) {
+    .navbar {
+        -webkit-text-fill-color: #AE0001;
+        -webkit-text-stroke: 1px black;
+    }
+}
+
+.navbar_identity, .navbar_items ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar ul {
+    width: 100%;
+    padding: 0;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.navbar_identity {
+    width: 30%;
+}
+
+.navbar_items {
+    width: 70%;
+    align-content: center;
+}
