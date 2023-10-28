@@ -52,3 +52,5 @@
 /.web-server-pid
 
 .env.local
+comics_project/src/Service/MarvelAPIPersonnageService.php
+

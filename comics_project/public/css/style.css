@@ -146,3 +146,44 @@ a {
         -webkit-text-stroke: 1px black;
     }
 }
+
+/* CARDS */
+
+.character_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 15px;
+    height: 500px;
+}
+/*for displaying as card*/
+.character_card{
+    max-width: 350px;
+    height: auto;
+    border: white 10px solid;
+    overflow: hidden;
+    margin: 10px;
+    background: linear-gradient(to bottom right, #B71C1C, #212121);
+}
+
+.character_card--description{
+    color: black;
+    margin: 8px;
+}
+
+.character_card--image {
+    display: block;
+    border: 0;
+    width: 100%;
+    height: auto;
+}
+
+.character_card--name{
+     color: white;
+     font-weight: bold;
+     font-size: 20px;
+     text-align: center;
+     padding: 5px;
+     margin: 10px;
+ }
