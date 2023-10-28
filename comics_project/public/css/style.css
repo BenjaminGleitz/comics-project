@@ -3,14 +3,80 @@ body {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* ! FONT - BANGERS ! */
+
+.navbar, .log_button, .form, .button_form--login {
+    font-family: 'Bangers';
+    color: white;
+}
+
+@supports (-webkit-text-stroke: 3px black) {
+    .form {
+        -webkit-text-stroke: 1px black;
+    }
+}
+
+/* ! FORM ! */
+
+.form_container, .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_container {
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.form {
+    width: 20%;
+    height: 40%;
+    display: flex;
+    align-items: flex-start;
+}
+
+.form input {
+    width: 90%;
+    border: white;
+    border-radius: 5px;
+    margin: 5px 0 5px 0;
+}
+
+.button_form--login {
+    width: 50%;
+    margin-top: 40px;
+    border-radius: 5px;
+    border: white;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.agree-term {
+    display: flex;
+    flex-direction: row;
+}
+
+.form_image {
+    height: 300px;
+    width: 300px;
+}
+
 /*! NAVBAR !*/
 
 .navbar {
     color: #AE0001;
-    font-family: 'Bangers';
     font-size: 30px;
+    height: 15vh;
     display: flex;
     justify-content: space-around;
+    padding-right: 20px;
     align-items: center;
     background-color: white;
 }
@@ -22,10 +88,16 @@ body {
     }
 }
 
-.navbar_identity, .navbar_items ul {
+.navbar_identity, .navbar_items ul, .navbar_login {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
 }
 
 .navbar ul {
@@ -42,4 +114,30 @@ body {
 .navbar_items {
     width: 70%;
     align-content: center;
+}
+
+.log_button {
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+    border: white solid 2px;
+    font-size: 20px;
+}
+
+.log_button--login {
+    background-color: #22b622;
+}
+
+.log_button--logout {
+    background-color: red;
+}
+.log_button a {
+    color: white;
+    letter-spacing: 2px;
+}
+
+@supports (-webkit-text-stroke: 3px black) {
+    .log_button a {
+        -webkit-text-stroke: 1px black;
+    }
 }
