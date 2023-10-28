@@ -79,6 +79,7 @@ a {
     padding-right: 20px;
     align-items: center;
     background-color: white;
+    border-bottom: black 5px solid;
 }
 
 @supports (-webkit-text-stroke: 3px black) {
@@ -103,8 +104,12 @@ a {
 .navbar ul {
     width: 100%;
     padding: 0;
-    justify-content: space-around;
+    justify-content: flex-end;
     list-style-type: none;
+}
+
+.navbar ul li {
+    margin: 0 20px;
 }
 
 .navbar_identity {
