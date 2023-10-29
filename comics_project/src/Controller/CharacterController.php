@@ -4,19 +4,17 @@ namespace App\Controller;
 
 use App\Service\MarvelAPIPersonnageService;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/', name: 'home_')]
-class HomeController extends AbstractController
+#[Route('/character', name: 'character_')]
+class CharacterController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(
-        MarvelAPIPersonnageService $marvelAPIPersonnageService, Request $request, PaginatorInterface $paginator): Response
+    public function index(MarvelAPIPersonnageService $marvelAPIPersonnageService, Request $request, PaginatorInterface $paginator): Response
     {
-
         $results = $marvelAPIPersonnageService->getPersonnages();
         $characters = $paginator->paginate(
             $results['data']['results'], // tableau contenant les données des personnages //
@@ -25,7 +23,7 @@ class HomeController extends AbstractController
         );
 
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('character/index.html.twig', [
             'controller_name' => 'HomeController',
             'characters' => $characters,
         ]);
