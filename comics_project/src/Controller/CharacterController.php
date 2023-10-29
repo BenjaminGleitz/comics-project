@@ -22,10 +22,26 @@ class CharacterController extends AbstractController
             6 // nombre d'éléments par page : par défaut 6 //
         );
 
-
         return $this->render('character/index.html.twig', [
             'controller_name' => 'HomeController',
             'characters' => $characters,
         ]);
     }
+
+    #[Route('/{id}', name: 'show', methods: ['GET'])]
+    public function show(int $id, MarvelAPIPersonnageService $marvelAPIPersonnageService): Response
+    {
+
+        $results = $marvelAPIPersonnageService->getPersonnage($id);
+        $character = $results['data']['results'][0];
+
+        $ComicsResults = $marvelAPIPersonnageService->getPersonnageComics($id);
+        dd($ComicsResults);
+
+
+        return $this->render('character/show.html.twig', [
+            'character' => $character,
+        ]);
+    }
+
 }
