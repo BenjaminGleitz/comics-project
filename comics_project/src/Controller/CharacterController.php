@@ -19,7 +19,7 @@ class CharacterController extends AbstractController
         $characters = $paginator->paginate(
             $results['data']['results'], // tableau contenant les données des personnages //
             $request->query->getInt('page', 1), // numéro de la page : par défaut page 1 //
-            6 // nombre d'éléments par page : par défaut 6 //
+            8 // nombre d'éléments par page : par défaut 6 //
         );
 
         return $this->render('character/index.html.twig', [
@@ -35,12 +35,12 @@ class CharacterController extends AbstractController
         $results = $marvelAPIPersonnageService->getPersonnage($id);
         $character = $results['data']['results'][0];
 
-        $ComicsResults = $marvelAPIPersonnageService->getPersonnageComics($id);
-        dd($ComicsResults);
-
+        $comicsResults = $marvelAPIPersonnageService->getPersonnageComics($id);
+        $comics = $comicsResults['data']['results'];
 
         return $this->render('character/show.html.twig', [
             'character' => $character,
+            'comics' => $comics
         ]);
     }
 

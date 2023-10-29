@@ -12,7 +12,7 @@ a {
 
 /* ! FONT - BANGERS ! */
 
-.navbar, .log_button, .form, .button_form--login, .character_card--name {
+.navbar, .log_button, .form, .button_form--login, .character_card--name, .section_title {
     font-family: 'Bangers';
     color: white;
     letter-spacing: 1px;
@@ -90,10 +90,10 @@ a {
     height: 15vh;
     display: flex;
     justify-content: space-around;
-    padding-right: 20px;
     align-items: center;
     background-color: white;
     border-bottom: black 5px solid;
+    margin-bottom: 20px;
 }
 
 @supports (-webkit-text-stroke: 3px black) {
@@ -168,13 +168,12 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 15px;
-    width: 80%;
+    margin: 15px 0;
 }
 
 .character_card {
-    width: 200px;
-    height: 220px;
+    width: 180px;
+    height: 200px;
     border-radius: 15px;
     padding: 1.5rem;
     background: white;
@@ -255,27 +254,128 @@ a {
 
 /* CARD SHOW */
 
-.character_container--show {
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+.character_container--show, .comics_container--show {
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
+    justify-content: space-between;
+    flex-wrap: wrap;
     color: black;
 }
 
 .character_container--show .character_card--image {
-    height: 300px;
-    width: auto;
+    width: 30%;
+    height: auto;
     border: black 3px solid;
 }
 
 .character_container--show .character_card--info {
-    margin-left: 50px;
     background-color: white;
     border: black 3px solid;
     padding: 30px;
+    width: 60%;
 }
 
 .character_container--show .character_card--info .character_card--name {
+    color: black;
+}
+
+.comic_card {
+    width: 140px;
+    height: 250px;
+    padding: 1.5rem;
+    background: white;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.4s ease-out;
+    box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+    border: black 3px solid;
+    margin: 20px 0;
+
+    &:hover {
+        transform: translateY(20px);
+        &:before {
+            opacity: 1;
+        }
+        .character_card--info {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .comic_card--image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .comic_card--info {
+        position: relative;
+        z-index: 3;
+        color: white;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.5s;
+        .character_card--name {
+            margin: 0px;
+        }
+        .comic_card--description {
+            letter-spacing: 1px;
+            font-size: 15px;
+            margin-top: 8px;
+        }
+        .comic_card--button {
+            padding: 0.6rem;
+            outline: none;
+            border: none;
+            border-radius: 3px;
+            background: white;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s ease;
+            &:hover {
+                background: #AE0001;
+                color: white
+            }
+        }
+    }
+}
+
+.section_title_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    margin-top: 20px;
+    border: solid black 3px;
+}
+
+.section_title {
     color: black;
 }
 

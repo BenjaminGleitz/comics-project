@@ -3,13 +3,28 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <div class="character_container--show">
-        <img class="character_card--image" src="{{ character.thumbnail.path  ~ '.' ~ character.thumbnail.extension }}">
-        <div class="character_card--info">
-            <h3 class="character_card--name">{{ character.name }}</h3>
-            <p class="character_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
-
-            <h3 class="character_card--name">{{ character.comics.collectionURI }}</h3>
+    <div class="container">
+        <div class="character_container--show">
+            <img class="character_card--image" src="{{ character.thumbnail.path  ~ '.' ~ character.thumbnail.extension }}">
+            <div class="character_card--info">
+                <h3 class="character_card--name">{{ character.name }}</h3>
+                <p class="character_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
+            </div>
+        </div>
+        <div class="section_title_container">
+            <h1 class="section_title">COMICS</h1>
+        </div>
+        <div class="comics_container--show">
+            {% for comic in comics %}
+                <div class="comic_card">
+                    <img class="comic_card--image" src="{{ comic.thumbnail.path  ~ '.' ~ comic.thumbnail.extension }}">
+                    <div class="comic_card--info">
+                        <h3 class="comic_card--name">{{ comic.title }}</h3>
+                        <p class="comic_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </div>
+
 {% endblock %}
