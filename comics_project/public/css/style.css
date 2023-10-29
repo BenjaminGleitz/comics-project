@@ -161,7 +161,7 @@ a {
     }
 }
 
-/* CARDS */
+/* CARDS INDEX */
 
 .character_container {
     display: flex;
@@ -171,14 +171,6 @@ a {
     margin: 15px;
     width: 80%;
 }
-
-
-
-
-
-
-
-
 
 .character_card {
     width: 200px;
@@ -261,5 +253,30 @@ a {
     }
 }
 
+/* CARD SHOW */
+
+.character_container--show {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    color: black;
+}
+
+.character_container--show .character_card--image {
+    height: 300px;
+    width: auto;
+    border: black 3px solid;
+}
+
+.character_container--show .character_card--info {
+    margin-left: 50px;
+    background-color: white;
+    border: black 3px solid;
+    padding: 30px;
+}
+
+.character_container--show .character_card--info .character_card--name {
+    color: black;
+}
 
 
