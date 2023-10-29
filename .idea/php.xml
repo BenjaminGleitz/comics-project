@@ -144,6 +144,8 @@
       <path value="$PROJECT_DIR$/comics_project/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/comics_project/vendor/psr/container" />
       <path value="$PROJECT_DIR$/comics_project/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/comics_project/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/comics_project/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
@@ -153,6 +155,7 @@
   <component name="PhpUnit">
     <phpunit_settings>
       <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/comics_project/phpunit.xml.dist" custom_loader_path="$PROJECT_DIR$/comics_project/vendor/autoload.php" use_configuration_file="true" />
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />
     </phpunit_settings>
   </component>
   <component name="PsalmOptionsConfiguration">

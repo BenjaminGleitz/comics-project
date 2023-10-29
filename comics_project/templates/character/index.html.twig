@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    <div class="character_container">
+        {% for character in characters %}
+            <div class="character_card">
+                <img class="character_card--image" src="{{ character.thumbnail.path  ~ '.' ~ character.thumbnail.extension }}">
+                <div class="character_card--info">
+                    <h3 class="character_card--name">{{ character.name }}</h3>
+                    <p class="character_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
+                    <button class="character_card--button">Read More</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {{ knp_pagination_render(characters) }}
+    </div>
+
+{% endblock %}
