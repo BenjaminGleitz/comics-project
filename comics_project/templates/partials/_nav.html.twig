@@ -1,19 +1,21 @@
 <nav class="navbar">
-    <div class="navbar_identity">
-        <img class="logo" src="{{ asset('images/logo.png') }}"/>
-    </div>
-    <div class="navbar_items">
-        <ul>
-            <li>Comics</li>
-            <li><a href="{{ path('character_index') }}">Characters</a></li>
-            <li>Account</li>
-        </ul>
-    </div>
-    <div class="navbar_login">
-        {% if app.user %}
-            <button class="log_button log_button--logout" type="submit"><a href="{{ path('app_logout') }}">LOGOUT</a></button>
-        {% else %}
-            <button class="log_button log_button--login" type="submit"><a href="{{ path('app_login') }}">LOGIN</a></button>
-        {% endif %}
+    <div class="navbar_container">
+        <div class="navbar_identity">
+            <img class="logo" src="{{ asset('images/logo.png') }}"/>
+        </div>
+        <div class="navbar_items">
+            <ul>
+                <li>Comics</li>
+                <li><a href="{{ path('character_index') }}">Characters</a></li>
+                <li>Account</li>
+            </ul>
+        </div>
+        <div class="navbar_login">
+            {% if app.user %}
+                <button class="log_button log_button--logout" type="submit"><a href="{{ path('app_logout') }}">LOGOUT</a></button>
+            {% else %}
+                <button class="log_button log_button--login" type="submit"><a href="{{ path('app_login') }}">LOGIN</a></button>
+            {% endif %}
+        </div>
     </div>
 </nav>
