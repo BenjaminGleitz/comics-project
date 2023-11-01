@@ -5,8 +5,8 @@
         </div>
         <div class="navbar_items">
             <ul>
-                <li>Comics</li>
-                <li><a href="{{ path('character_index') }}">Characters</a></li>
+                <li class="{% if page_active == 'home' %}active{% endif %}"><a href="{{ path('home_index') }}">Home</a></li>
+                <li class="{% if page_active == 'character' %}active{% endif %}"><a href="{{ path('character_index') }}">Characters</a></li>
                 <li>Account</li>
             </ul>
         </div>

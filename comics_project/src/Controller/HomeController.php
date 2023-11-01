@@ -18,16 +18,15 @@ class HomeController extends AbstractController
     {
 
         $results = $marvelAPIPersonnageService->getPersonnages();
-        $characters = $paginator->paginate(
-            $results['data']['results'], // tableau contenant les données des personnages //
-            $request->query->getInt('page', 1), // numéro de la page : par défaut page 1 //
-            6 // nombre d'éléments par page : par défaut 6 //
-        );
-
+        $charactersWithPhotos = array_filter($results['data']['results'], function($character) {
+            return isset($character['thumbnail']['path']) && isset($character['thumbnail']['extension']) &&
+                !str_ends_with($character['thumbnail']['path'], 'image_not_available');
+        });
 
         return $this->render('home/index.html.twig', [
+            'page_active' => 'home',
             'controller_name' => 'HomeController',
-            'characters' => $characters,
+            'characters' => $charactersWithPhotos,
         ]);
     }
 }

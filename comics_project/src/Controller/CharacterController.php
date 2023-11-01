@@ -28,6 +28,7 @@ class CharacterController extends AbstractController
         );
 
         return $this->render('character/index.html.twig', [
+            'page_active' => 'character',
             'controller_name' => 'HomeController',
             'characters' => $characters,
         ]);
@@ -44,6 +45,7 @@ class CharacterController extends AbstractController
         $comics = $comicsResults['data']['results'];
 
         return $this->render('character/show.html.twig', [
+            'page_active' => 'character',
             'character' => $character,
             'comics' => $comics
         ]);
