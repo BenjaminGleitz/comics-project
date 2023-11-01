@@ -8,6 +8,7 @@
     <div class="section_title_container">
         <h1 class="section_title">CHARACTERS</h1>
     </div>
+    {{ knp_pagination_render(characters) }}
     <div class="character_container">
         {% for character in characters %}
             <div class="character_card">
@@ -19,9 +20,6 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
-    <div class="pagination">
-        {{ knp_pagination_render(characters) }}
     </div>
 </div>
 

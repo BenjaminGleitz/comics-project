@@ -12,7 +12,7 @@ a {
 
 /* ! FONT - BANGERS ! */
 
-.navbar, .log_button, .form, .button_form--login, .character_card--name, .section_title {
+.navbar, .log_button, .form, .button_form--login, .character_card--name, .section_title, .pagination a, .current {
     font-family: 'Bangers';
     color: white;
     letter-spacing: 1px;
@@ -26,12 +26,31 @@ a {
 
 /* ! PAGINATION ! */
 .pagination {
-    color: green;
+    display: flex;
+    border-radius: 5px;
+    margin: 20px 0;
 }
 
-.pagination a:link {
+.pagination a {
+    color: #AE0001;
+    float: left;
+    padding: 8px 16px;
     text-decoration: none;
+    border: solid black 3px;
+    background-color: white;
 }
+
+.pagination span {
+    padding: 8px 16px;
+}
+
+.current {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
 
 /* ! FORM ! */
 
@@ -96,11 +115,8 @@ a {
     margin-bottom: 20px;
 }
 
-@supports (-webkit-text-stroke: 3px black) {
-    .navbar {
-        -webkit-text-fill-color: #AE0001;
-        -webkit-text-stroke: 1px black;
-    }
+.navbar_items ul li a {
+    color: #AE0001;
 }
 
 .navbar_container {
@@ -176,8 +192,7 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 15px 0;
+    justify-content: space-between;
 }
 
 .character_card {
@@ -192,7 +207,7 @@ a {
     transition: 0.4s ease-out;
     box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
     border: white 10px solid;
-    margin: 0 10px 40px 10px;
+    margin: 0 0 40px 0;
 
     &:hover {
         transform: translateY(20px);
@@ -293,6 +308,8 @@ a {
 
 .character_container--show .character_card--info .character_card--name {
     color: black;
+    font-size: 40px;
+    margin-top: 0;
 }
 
 .comic_card {
