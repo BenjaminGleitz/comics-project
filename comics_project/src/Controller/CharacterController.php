@@ -16,13 +16,8 @@ class CharacterController extends AbstractController
     public function index(MarvelAPIPersonnageService $marvelAPIPersonnageService, Request $request, PaginatorInterface $paginator): Response
     {
         $results = $marvelAPIPersonnageService->getPersonnages();
-        $charactersWithPhotos = array_filter($results['data']['results'], function($character) {
-            return isset($character['thumbnail']['path']) && isset($character['thumbnail']['extension']) &&
-                !str_ends_with($character['thumbnail']['path'], 'image_not_available');
-        });
-
         $characters = $paginator->paginate(
-            $charactersWithPhotos, // tableau contenant les données des personnages //
+            $results['data']['results'], // tableau contenant les données des personnages //
             $request->query->getInt('page', 1), // numéro de la page : par défaut page 1 //
             8 // nombre d'éléments par page : par défaut 6 //
         );

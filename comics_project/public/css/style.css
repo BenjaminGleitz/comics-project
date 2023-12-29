@@ -10,9 +10,13 @@ a {
     text-decoration: none;
 }
 
+no_data {
+    font-style: italic;
+}
+
 /* ! FONT - BANGERS ! */
 
-.navbar, .log_button, .form, .button_form--login, .character_card--name, .section_title, .pagination a, .current {
+.navbar, .log_button, .form, .button_form--login, .character_card--name, .section_title, .pagination a, .current, .search_input {
     font-family: 'Bangers';
     color: white;
     letter-spacing: 1px;
@@ -98,6 +102,36 @@ a {
 .form_image {
     height: 300px;
     width: 300px;
+}
+
+/*! SEARCH !*/
+
+.search_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.search_input {
+    color: black;
+    padding-left: 10px;
+    border: solid black 3px;
+    width: 50%;
+}
+.search_submit {
+    width: 20%;
+    height: 100%;
+    margin-left: 10px;
+    border: solid black 3px;
+}
+
+.section_home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }
 
 /*! NAVBAR !*/
@@ -406,3 +440,64 @@ a {
 }
 
 
+<<<<<<< Updated upstream
+=======
+#wrapper {
+    width: 100%;
+    max-width: 964px;
+    position: relative;
+}
+
+#carousel {
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+#carousel::-webkit-scrollbar {
+    height: 0;
+}
+
+#prev,
+#next {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background: white;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+#prev {
+    top: 50%;
+    left: -7%;
+    transform: translate(50%, -50%);
+    display: none;
+}
+
+#next {
+    top: 50%;
+    right: -7%;
+    transform: translate(-50%, -50%);
+}
+
+#content {
+    display: grid;
+    grid-gap: 16px;
+    grid-auto-flow: column;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 162px;
+}
+
+.hidden {
+    display: none;
+}
+>>>>>>> Stashed changes

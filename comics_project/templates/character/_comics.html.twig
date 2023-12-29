@@ -1,0 +1,11 @@
+{% for comic in comics %}
+    <div class="comic_card">
+        <a href="">
+            <img class="comic_card--image" src="{{ comic.thumbnail.path  ~ '.' ~ comic.thumbnail.extension }}">
+            <div class="comic_card--info">
+                <h3 class="comic_card--name">{{ comic.title }}</h3>
+                <p class="comic_card--description">{{ comic.description }}</p>
+            </div>
+        </a>
+    </div>
+{% endfor %}
