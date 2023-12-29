@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}{{ character.name }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -8,31 +8,52 @@
             <img class="character_card--image" src="{{ character.thumbnail.path  ~ '.' ~ character.thumbnail.extension }}">
             <div class="character_card--info">
                 <h3 class="character_card--name">{{ character.name }}</h3>
-                <p class="character_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
+                <p class="character_card--description">{{ character.description }}</p>
             </div>
         </div>
-        {% if comics is empty %}
-            <div class="section_title_container">
-                <h1 class="section_title">PAS DE COMICS</h1>
-            </div>
-        {% else %}
-            <div class="section_title_container">
-                <h1 class="section_title">COMICS</h1>
-            </div>
-            <div class="comics_container--show">
-                {% for comic in comics %}
-                    <div class="comic_card">
-                        <a href="">
-                            <img class="comic_card--image" src="{{ comic.thumbnail.path  ~ '.' ~ comic.thumbnail.extension }}">
-                            <div class="comic_card--info">
-                                <h3 class="comic_card--name">{{ comic.title }}</h3>
-                                <p class="comic_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        {% endif %}
+        <div class="section_title_container">
+            <h1 class="section_title" id="comics-link">COMICS</h1>
+        </div>
+        <div class="comics_container--show hidden comics-container" id="comics-container">
+            {% for comic in comics %}
+                <div class="comic_card">
+                    <a href="">
+                        <img class="comic_card--image" src="{{ comic.thumbnail.path  ~ '.' ~ comic.thumbnail.extension }}">
+                        <div class="comic_card--info">
+                            <h3 class="comic_card--name">{{ comic.title }}</h3>
+                            <p class="comic_card--description">The last surviving member of a tree-like alien race, Groot is perhaps one of the most unusual beings in all the cosmos.</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
+    <script>
+        $(document).ready(function() {
+            // Fonction pour charger le contenu via AJAX
+            function loadContent(url, containerId) {
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    success: function(response) {
+                        // Mettre à jour le contenu du conteneur avec la réponse du serveur
+                        $(containerId).html(response);
+                    },
+                    error: function(error) {
+                        console.error('Erreur AJAX:', error);
+                    }
+                });
+            }
+
+            // Gérer le clic sur le titre "COMICS"
+            $('#comics-link').click(function() {
+                // Charger les comics via AJAX
+                loadContent('/comics/{{ character.id }}', '#comics-container');
+
+                // Rendre les comics visibles en retirant la classe 'hidden'
+                $('.comics-container').removeClass('hidden');
+            });
+        });
+    </script>
 {% endblock %}
