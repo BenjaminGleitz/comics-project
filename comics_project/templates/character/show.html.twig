@@ -22,7 +22,7 @@
             <div class="comics_container--show hidden comics-container" id="comics-container">
                 {% for comic in comics %}
                     <div class="comic_card">
-                        <a href="">
+                        <a href="{{ path('comics_show', {'id': comic.id}) }}">
                             <img class="comic_card--image" src="{{ comic.thumbnail.path  ~ '.' ~ comic.thumbnail.extension }}">
                             <div class="comic_card--info">
                                 <h3 class="comic_card--name">{{ comic.title }}</h3>

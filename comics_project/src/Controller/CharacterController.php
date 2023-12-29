@@ -39,6 +39,7 @@ class CharacterController extends AbstractController
         $comicsResults = $marvelAPIPersonnageService->getPersonnageComics($id);
         $comics = $comicsResults['data']['results'];
 
+
         return $this->render('character/show.html.twig', [
             'page_active' => 'character',
             'character' => $character,

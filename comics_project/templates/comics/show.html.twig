@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ comic.title }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="character_container--show">
+            <img class="character_card--image" src="{{ comic.thumbnail.path  ~ '.' ~ comic.thumbnail.extension }}">
+            <div class="character_card--info">
+                <h3 class="character_card--name">{{ comic.title }}</h3>
+                <p class="character_card--description">{{ comic.description }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
